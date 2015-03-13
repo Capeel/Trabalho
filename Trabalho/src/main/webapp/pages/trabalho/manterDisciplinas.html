@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="Trabalho">
+    <head>
+        <title></title>
+        <script src="../angular.min.js"></script>
+        <script src="manterDisciplina.js"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <div ng-controller="trabalhoController" ng-init="iniciar()">
+            <div>
+                Id<input type="text" ng-model="trabalho.id" />
+                <br>
+                Nome<input type="text" ng-model="trabalho.nome"/>
+                <br>
+                Carga Horaria <input type="text" ng-model="trabalho.cargaHoraria"/>
+                <br>
+                Peso<input type="text" ng-model="trabalho.peso"/>
+                <br>
+                <button ng-click="salvar()">Salvar</button>
+             </div>
+            
+            <table border=1>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nome</th>
+                        <th>Carga Horaria</th>
+                        <th>Peso</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="t in trabalhos">
+                        <th>{{t.id}}</th>
+                        <th>{{t.nome}}</th>
+                        <th>{{t.cargaHoraria}}</th>
+                        <th>{{t.peso}}</th>
+                        <th>
+                            <a href="#" ng-click="excluir(t)">Excluir</a>
+                            <a href="#" ng-click="editar(t)">Editar</a>
+                            
+                        </th>
+                    </tr>
+                </tbody>
+                
+                
+            </table>
+            
+            
+            
+        </div>
+    </body>
+</html>
